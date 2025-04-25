@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { MongooseModule } from '@nestjs/mongoose';
 
+import { AppController } from './app.controller';
 import { AuthModule } from '@modules/auth/auth.module';
 import { BrandModule } from '@modules/brand/brand.module';
 import { CartModule } from '@modules/cart/cart.module';
@@ -89,6 +90,7 @@ import { LoggerMiddleware } from '@shared/middlewares/http-logger.middleware';
     FavoriteModule,
     ReviewModule,
   ],
+  controllers: [AppController],
   providers: [
     ConfigService,
     {
