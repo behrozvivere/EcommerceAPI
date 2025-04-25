@@ -1,19 +1,21 @@
+[build]
+builder = "nixpacks"
+
 [variables]
 NODE_VERSION = "18"
-
-[phases.setup]
-nixPkgs = ["nodejs-18_x", "npm", "openssl"]
-
-[phases.install]
-cmds = ["cd monolithic && npm install"]
-
-[phases.build]
-cmds = ["cd monolithic && npm run build"]
-
-[start]
-cmd = "cd monolithic && npm run start:prod"
 
 [deploy]
 startCommand = "cd monolithic && npm run start:prod"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 3
+
+[phases.setup]
+aptPkgs = ["nodejs", "npm", "openssl"]
+
+[phases.install]
+workingDirectory = "monolithic"
+cmds = ["npm install"]
+
+[phases.build]
+workingDirectory = "monolithic"
+cmds = ["npm run build"]
