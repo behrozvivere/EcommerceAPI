@@ -1,0 +1,1 @@
+web: cd monolithic && npm run start:prod
