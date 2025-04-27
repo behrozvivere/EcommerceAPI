@@ -29,7 +29,16 @@ async function bootstrap() {
 
   SwaggerModule.setup('docs', app, document);
 
-  app.enableCors();
+  // تنظیم CORS برای پذیرش درخواست از همه دامنه‌ها
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+    allowedHeaders: 'Content-Type, Accept, Authorization',
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+  });
+
   app.use(helmet());
   app.useGlobalPipes(new ValidationPipe());
 
