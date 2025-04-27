@@ -6,5 +6,10 @@ services:
     build: .
     environment:
       - PORT=4002
+      - NODE_ENV=development
+      - PRODUCTION_URL=https://ecommerceapi-production-2236.up.railway.app
+      - STAGING_URL=https://ecommerceapi-production-2236.up.railway.app
+      - DEVELOPMENT_URL=http://localhost:8081
+      - LOCAL_URL=http://localhost:8081
     ports:
       - "8081:8081"
