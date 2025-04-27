@@ -29,7 +29,7 @@ async function bootstrap() {
 
   SwaggerModule.setup('docs', app, document);
 
-  // تنظیم CORS برای پذیرش درخواست از همه دامنه‌ها
+  // تنظیم CORS برای پذیرش درخواست از همه دامنه‌ه 
   app.enableCors({
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
